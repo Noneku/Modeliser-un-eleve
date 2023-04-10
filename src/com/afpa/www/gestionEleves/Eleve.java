@@ -5,13 +5,24 @@ import java.util.ArrayList;
 public class Eleve {
 
     private String nom;
-    private ArrayList<Integer> listeNotes = null;
+    private ArrayList<Integer> listeNotes = new ArrayList<Integer>();
     private double moyenne;
 
     public Eleve(String nom) {
         this.nom = nom;
     }
     public void ajouterNote(int note) {
+        ArrayList<Integer> arrList = listeNotes;
+        arrList.add(note);
+
+        // Calcul Moyenne
+        int total = 0;
+
+        for (int i = 0; i < arrList.size(); i++) {
+            total += arrList.get(i);
+        }
+
+        this.moyenne = total / arrList.size();
 
     }
     //////////////GETTERS//////////////
@@ -28,4 +39,13 @@ public class Eleve {
     }
     //////////////GETTERS//////////////
 
+
+    @Override
+    public String toString() {
+        return "Eleve{" +
+                "nom='" + nom + '\'' +
+                ", listeNotes=" + listeNotes +
+                ", moyenne=" + moyenne +
+                '}';
+    }
 }
