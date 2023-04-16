@@ -10,6 +10,8 @@ public class Eleve {
 
     public Eleve(String nom) {
         this.nom = nom;
+
+        if(listeNotes.isEmpty()) { listeNotes = null; };
     }
     public void ajouterNote(int note) {
         ArrayList<Integer> arrList = listeNotes;
